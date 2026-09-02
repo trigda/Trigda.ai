@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — TRIGDA</title>
+<meta name="description" content="TRIGDA is an automation and AI solutions company based in Gujranwala, Pakistan, founded by Talha Bin Saeed." />
+<link rel="canonical" href="/about.html" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a href="/" class="brand">TRIG<span>DA</span></a>
+    <div class="main-nav">
+      <ul class="main-nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/about.html" aria-current="page">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <a href="/booking.html" class="btn btn-primary btn-sm cta-nav">Book a Consultation</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-header">
+    <div class="container">
+      <h1>About TRIGDA</h1>
+      <p class="lead">TRIGDA is a technology and automation partner based in Gujranwala, Pakistan, built around one idea: the parts of your business that repeat should run by themselves.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 74ch;">
+      <h2>How TRIGDA works</h2>
+      <p>Founded by Talha Bin Saeed, TRIGDA takes on the practical, unglamorous work behind a growing business - the website that needs to actually convert, the prospect list that needs to actually be accurate, and the follow-up messages that need to actually go out on time. Instead of treating these as separate vendors, TRIGDA builds them to work together as one system.</p>
+      <p>That means every project starts with understanding how your business runs today, not a generic template. Websites are built to support real forms and real integrations. Lead generation is scoped to the customers you actually want, not a broad list. Automation is designed around the specific tasks eating your team's time.</p>
+
+      <h2 style="margin-top:2.2em;">What TRIGDA values</h2>
+      <ul style="color:var(--ink-soft); padding-left: 20px;">
+        <li style="margin-bottom:10px;">Direct, fast communication - you should never be guessing where a project stands.</li>
+        <li style="margin-bottom:10px;">Automation-first thinking - if something repeats, it's a candidate to automate.</li>
+        <li style="margin-bottom:10px;">Custom solutions - built for your business, not a one-size-fits-all package.</li>
+      </ul>
+
+      <h2 style="margin-top:2.2em;">Approach</h2>
+      <p>Every engagement follows the same five steps: understand the requirement, plan the solution, build and configure it, test it thoroughly, then launch and support it. That structure keeps projects predictable regardless of whether it's a website, a lead campaign, or an automation system.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2>Want to work together?</h2>
+          <p>Book a free consultation and tell us what you're trying to solve.</p>
+        </div>
+        <a href="/booking.html" class="btn btn-primary">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">TRIGDA</div>
+        <p style="color:#8891a5; max-width:38ch; margin-top:10px;">Websites, lead generation, and AI automation for businesses that want to grow without adding overhead.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/booking.html">Book a Consultation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms &amp; Booking Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> TRIGDA. All rights reserved.</span>
+      <span>Gujranwala, Pakistan &middot; <a href="mailto:talhabinsaeed36@gmail.com">talhabinsaeed36@gmail.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="chat-launcher" id="chatLauncher" aria-label="Open TRIGDA Assistant chat" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-8.5 8.5 8.4 8.4 0 01-4-1L3 20l1-4.5A8.5 8.5 0 1121 11.5z"/></svg>
+</button>
+<section class="chat-panel" id="chatPanel" role="dialog" aria-label="TRIGDA Assistant chat">
+  <div class="chat-header">
+    <div>
+      <div class="chat-header-title">TRIGDA Assistant</div>
+      <div class="chat-header-sub">Ask about services, process, or booking</div>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+  </div>
+  <div class="chat-counter">
+    <span id="chatCounterText">0 / 10 messages used</span>
+    <span class="chat-counter-bar"><span class="chat-counter-fill" id="chatCounterFill"></span></span>
+  </div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <form class="chat-input-row" id="chatForm">
+    <input type="text" id="chatInput" placeholder="Ask a question..." maxlength="500" autocomplete="off" />
+    <button type="submit" class="chat-send" id="chatSend" aria-label="Send message">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h14M11 4l6 6-6 6"/></svg>
+    </button>
+  </form>
+</section>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="/js/main.js"></script>
+<script src="/js/chatbot.js"></script>
+</body>
+</html>
