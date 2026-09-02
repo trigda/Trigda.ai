@@ -1,0 +1,13 @@
+<header class="admin-nav">
+  <a href="/admin/dashboard" class="admin-nav-logo">TRIGDA <span>Admin</span></a>
+  <nav class="admin-nav-links">
+    <a href="/admin/dashboard" class="<%= active === 'dashboard' ? 'active' : '' %>">Bookings</a>
+    <a href="/admin/logs" class="<%= active === 'logs' ? 'active' : '' %>">Security Logs</a>
+  </nav>
+  <div class="admin-nav-right">
+    <span class="admin-nav-email"><%= adminEmail %></span>
+    <form method="POST" action="/admin/logout" style="display:inline">
+      <button type="submit" class="btn btn-ghost btn-sm">Log out</button>
+    </form>
+  </div>
+</header>
