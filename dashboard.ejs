@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard — TRIGDA Admin</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+<%- include('partials/nav', { adminEmail: adminEmail, active: 'dashboard' }) %>
+
+<main class="admin-main">
+  <div class="admin-header-row">
+    <h1>Bookings</h1>
+    <a href="/admin/bookings/export" class="btn btn-ghost">Export CSV</a>
+  </div>
+
+  <section class="admin-stats">
+    <% statusValues.forEach(function(s) { %>
+      <% const found = stats.find(function(row){ return row.status === s; }); %>
+      <div class="stat-card">
+        <span class="stat-number"><%= found ? found.count : 0 %></span>
+        <span class="stat-label"><%= s %></span>
+      </div>
+    <% }); %>
+    <div class="stat-card stat-card-accent">
+      <span class="stat-number"><%= chatStats.total_sessions %></span>
+      <span class="stat-label">chat sessions</span>
+    </div>
+    <div class="stat-card stat-card-accent">
+      <span class="stat-number"><%= chatStats.total_messages %></span>
+      <span class="stat-label">chat messages</span>
+    </div>
+  </section>
+
+  <form method="GET" action="/admin/dashboard" class="admin-filters">
+    <select name="status">
+      <option value="">All statuses</option>
+      <% statusValues.forEach(function(s) { %>
+        <option value="<%= s %>" <%= filters.status === s ? 'selected' : '' %>><%= s %></option>
+      <% }); %>
+    </select>
+    <select name="service">
+      <option value="">All services</option>
+      <option value="Website Development" <%= filters.service === 'Website Development' ? 'selected' : '' %>>Website Development</option>
+      <option value="Lead Generation" <%= filters.service === 'Lead Generation' ? 'selected' : '' %>>Lead Generation</option>
+      <option value="AI Chatbot & Automation" <%= filters.service === 'AI Chatbot & Automation' ? 'selected' : '' %>>AI Chatbot & Automation</option>
+    </select>
+    <input type="date" name="from" value="<%= filters.from %>" aria-label="From date" />
+    <input type="date" name="to" value="<%= filters.to %>" aria-label="To date" />
+    <button type="submit" class="btn btn-primary">Filter</button>
+  </form>
+
+  <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Date / Time</th>
+          <th>Name</th>
+          <th>Contact</th>
+          <th>Company</th>
+          <th>Service</th>
+          <th>Details</th>
+          <th>Notification</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (bookings.length === 0) { %>
+          <tr><td colspan="8" class="admin-empty">No bookings match these filters yet.</td></tr>
+        <% } %>
+        <% bookings.forEach(function(b) { %>
+          <tr data-booking-id="<%= b.id %>">
+            <td><%= b.appointment_date.toISOString ? b.appointment_date.toISOString().slice(0,10) : b.appointment_date %> <%= b.appointment_time %></td>
+            <td><%= b.full_name %></td>
+            <td><%= b.email %><br /><span class="muted"><%= b.phone %></span></td>
+            <td><%= b.company_name %></td>
+            <td><%= b.service %></td>
+            <td class="admin-details-cell"><%= b.issue_details %></td>
+            <td><span class="badge badge-<%= b.notification_status %>"><%= b.notification_status %></span></td>
+            <td>
+              <select class="status-select" data-booking-id="<%= b.id %>">
+                <% statusValues.forEach(function(s) { %>
+                  <option value="<%= s %>" <%= b.status === s ? 'selected' : '' %>><%= s %></option>
+                <% }); %>
+              </select>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<script>window.__CSRF_TOKEN__ = "<%= csrfToken %>";</script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

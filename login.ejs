@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Login — TRIGDA</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+  <main class="admin-auth-wrap">
+    <div class="admin-auth-card">
+      <a href="/" class="admin-auth-logo">TRIGDA</a>
+      <h1>Admin sign in</h1>
+      <p class="admin-auth-sub">This area is restricted to TRIGDA staff.</p>
+
+      <% if (error) { %>
+        <div class="admin-alert admin-alert-error" role="alert"><%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/admin/login" class="admin-form" novalidate>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="username" />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password" />
+
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Security Logs — TRIGDA Admin</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+<%- include('partials/nav', { adminEmail: adminEmail, active: 'logs' }) %>
+
+<main class="admin-main">
+  <h1>Security logs</h1>
+  <p class="admin-sub">Most recent 300 events — logins, bookings, admin actions, and blocked access attempts.</p>
+
+  <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Event</th>
+          <th>Actor</th>
+          <th>Network</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (logs.length === 0) { %>
+          <tr><td colspan="5" class="admin-empty">No security events recorded yet.</td></tr>
+        <% } %>
+        <% logs.forEach(function(l) { %>
+          <tr>
+            <td class="mono"><%= new Date(l.created_at).toLocaleString() %></td>
+            <td><span class="badge badge-event"><%= l.event_type %></span></td>
+            <td><%= l.actor_type %><% if (l.actor_id) { %><br /><span class="muted mono"><%= l.actor_id %></span><% } %></td>
+            <td class="mono muted"><%= l.ip_hash_or_mask || '—' %></td>
+            <td><%= l.details || '—' %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</main>
+</body>
+</html>
