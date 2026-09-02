@@ -1,0 +1,127 @@
+.admin-body { background: var(--paper); min-height: 100vh; }
+
+/* ---- Login ---- */
+.admin-auth-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.admin-auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 32px;
+}
+.admin-auth-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+.admin-auth-sub { color: var(--slate); font-size: 0.9rem; margin-top: 4px; }
+.admin-form { display: flex; flex-direction: column; gap: 6px; margin-top: 20px; }
+.admin-form label { font-size: 0.85rem; font-weight: 600; margin-top: 10px; }
+.admin-form button { margin-top: 18px; }
+.admin-alert {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+.admin-alert-error { background: var(--danger-tint); color: var(--danger); }
+
+/* ---- Nav ---- */
+.admin-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 64px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.admin-nav-logo { font-family: var(--font-display); font-weight: 700; color: var(--ink); }
+.admin-nav-logo span { color: var(--blue); font-weight: 500; }
+.admin-nav-links { display: flex; gap: 22px; }
+.admin-nav-links a { color: var(--slate); font-weight: 500; font-size: 0.9rem; }
+.admin-nav-links a.active, .admin-nav-links a:hover { color: var(--blue); text-decoration: none; }
+.admin-nav-right { display: flex; align-items: center; gap: 14px; }
+.admin-nav-email { font-size: 0.85rem; color: var(--slate); }
+
+/* ---- Main ---- */
+.admin-main { max-width: 1200px; margin: 0 auto; padding: 32px 28px 64px; }
+.admin-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.admin-sub { color: var(--slate); margin-bottom: 24px; }
+
+.admin-stats {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  min-width: 110px;
+}
+.stat-card-accent { border-left: 3px solid var(--blue); }
+.stat-number { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--ink); }
+.stat-label { font-size: 0.78rem; color: var(--slate); text-transform: capitalize; }
+
+.admin-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.admin-filters select, .admin-filters input { padding: 9px 10px; font-size: 0.88rem; }
+
+.admin-table-wrap {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+.admin-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 900px; }
+.admin-table th {
+  text-align: left;
+  padding: 12px 14px;
+  background: var(--blue-tint-2);
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--border);
+}
+.admin-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--ink);
+}
+.admin-details-cell { max-width: 260px; color: var(--ink-soft); }
+.admin-empty { text-align: center; color: var(--slate); padding: 40px; }
+.muted { color: var(--slate); font-size: 0.82em; }
+.mono { font-family: var(--font-mono); font-size: 0.8rem; }
+
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.badge-sent { background: var(--teal-tint); color: var(--teal); }
+.badge-failed { background: var(--danger-tint); color: var(--danger); }
+.badge-pending { background: var(--amber-tint); color: var(--amber); }
+.badge-event { background: var(--blue-tint); color: var(--blue-deep); text-transform: none; }
+
+.status-select { padding: 6px 8px; font-size: 0.82rem; }
